@@ -1,9 +1,49 @@
 A simple command-line tool for managing environment configurations.
 
+
 ## Installation
 
+### Prerequisites
+
+First, ensure you have Rust and Cargo installed:
+
 ```bash
-cargo install env-manager
+# Check if Cargo is installed
+cargo --version || {
+  echo "Installing Rust and Cargo..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  source "$HOME/.cargo/env"
+}
+```
+
+### Installing `env-manager`
+Clone the repository and install locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/env-manager.git
+cd env-manager
+
+# Build and install
+cargo install --path .
+```
+
+After installation, ensure that `~/.cargo/bin` is in your PATH:
+
+```bash
+echo $PATH | grep -q "$HOME/.cargo/bin" && echo "Cargo bin is in PATH" || echo "Add ~/.cargo/bin to your PATH"
+```
+
+If needed, add to your PATH by adding this line to your shell profile (e.g., ~/.bashrc, ~/.zshrc):
+
+```bash
+export PATH="$HOME/.cargo/bin:$PATH"
+```
+
+Then reload your shell configuration:
+
+```bash
+source ~/.bashrc  # or ~/.zshrc
 ```
 
 ## Usage
