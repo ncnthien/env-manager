@@ -46,7 +46,24 @@ fn switch(env: &str) {
 }
 
 fn token(content: &str) {
-    println!("The token is: {:?}", content);
+    let path = Path::new(".env");
+    let read_env_result = fs::read_to_string(path).expect("Cannot read the .env!");
+    let mut lines: Vec<String> = read_env_result.lines().map(String::from).collect();
+    let new_line = format!("CODE_GEN_TOKEN={}", content);
+
+    for i in 0..lines.len() {
+        if lines[i].starts_with("CODE_GEN_TOKEN") {
+            lines[i] = new_line;
+            break;
+        }
+    }
+
+    let write_result = fs::write(path, lines.join("\n"));
+
+    match write_result {
+        Ok(_) => println!("Token added successfully!"),
+        Err(error) => println!("Cannot write the new token!, Error: {error}")
+    }
 }
 
 fn main() {
