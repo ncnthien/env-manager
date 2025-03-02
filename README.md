@@ -57,24 +57,24 @@ env-manager switch <environment>
 ```
 
 Supported environments:
-- dev
-- uat
-- sit
+- `dev`
+- `uat`
+- `sit`
 
 This command copies the content of `.env.<environment>` to `.env`.
 
 ### Token Management
 
-Add or update the CODE_GEN_TOKEN in your current .env file:
+Add or update the `CODE_GEN_TOKEN` in your current `.env` file:
 
 ```bash
 env-manager token <token-value>
 ```
 
 This command will:
-- Read your current .env file
-- Set or replace the CODE_GEN_TOKEN value with the provided token
-- Save the changes back to the .env file
+- Read your current `.env` file
+- Set or replace the `CODE_GEN_TOKEN` value with the provided token
+- Save the changes back to the `.env` file
 Display token information:
 
 ## Examples
