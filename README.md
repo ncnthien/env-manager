@@ -65,11 +65,17 @@ This command copies the content of `.env.<environment>` to `.env`.
 
 ### Token Management
 
-Display token information:
+Add or update the CODE_GEN_TOKEN in your current .env file:
 
 ```bash
 env-manager token <token-value>
 ```
+
+This command will:
+- Read your current .env file
+- Set or replace the CODE_GEN_TOKEN value with the provided token
+- Save the changes back to the .env file
+Display token information:
 
 ## Examples
 
@@ -80,7 +86,7 @@ env-manager switch dev
 # Switch to UAT environment
 env-manager switch uat
 
-# Display a token
+# Add or update a token in the current .env file
 env-manager token your-secret-token
 ```
 

@@ -50,12 +50,18 @@ fn token(content: &str) {
     let read_env_result = fs::read_to_string(path).expect("Cannot read the .env!");
     let mut lines: Vec<String> = read_env_result.lines().map(String::from).collect();
     let new_line = format!("CODE_GEN_TOKEN={}", content);
+    let mut is_token_exist = false;
 
     for i in 0..lines.len() {
         if lines[i].starts_with("CODE_GEN_TOKEN") {
-            lines[i] = new_line;
+            lines[i] = new_line.clone();
+            is_token_exist = true;
             break;
         }
+    }
+
+    if !is_token_exist {
+        lines.push(new_line.clone());
     }
 
     let write_result = fs::write(path, lines.join("\n"));
