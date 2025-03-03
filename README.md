@@ -21,7 +21,7 @@ Clone the repository and install locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/env-manager.git
+git clone https://github.com/ncnthien/env-manager.git
 cd env-manager
 
 # Build and install
